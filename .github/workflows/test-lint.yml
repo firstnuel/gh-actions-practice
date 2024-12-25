@@ -21,6 +21,6 @@ jobs:
               run: npm test
 
             - name: Fake deploy
-              run: echo "fake deploy initiated... \n Fake deployed successfully"
+              run: echo "fake deploy initiated...\nFake deployed successfully"
             
 

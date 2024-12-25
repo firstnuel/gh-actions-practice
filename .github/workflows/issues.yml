@@ -1,0 +1,17 @@
+name: Issues workflow
+on:
+    issues:
+        types:
+            - opened
+
+jobs:
+    issues-workflow:
+        runs-on: ubuntu-latests
+        steps:
+            - name: Checkout repo
+              uses:  actions/checkout@v4
+            
+            - name: Echo event
+              run: echo" ${{ toJson(github.event) }} ""
+
+             
