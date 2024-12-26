@@ -44,6 +44,6 @@ jobs:
             name: dist-files
             path: dist
         - name: List files
-          run: ls -a
+          run: ls 
         - name: Deploy
-          run: echo"Fake deployed..""
+          run: echo"Fake deployed.."
