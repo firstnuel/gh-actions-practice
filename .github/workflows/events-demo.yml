@@ -20,6 +20,8 @@ jobs:
     Build:
         needs: Lint
         runs-on: ubuntu-latest
+        outputs:
+          script-file: ${{ steps.publish.outputs.index-file }}
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -27,6 +29,9 @@ jobs:
               run: npm ci
             - name: Build code
               run: npm run build
+            - name: Publish filename
+              id: publish
+              run: find dist/assets/*.js -type f -execdir echo 'index-file={}' >> $GITHUB_OUTPUT \;
             - name: upload artifacts
               uses: actions/upload-artifact@v4
               with:
@@ -44,5 +49,7 @@ jobs:
             name: dist-files
         - name: List files
           run: ls 
+        - name: Output filename
+          run: echo '${{ needs.Build.outputs.script-file }}'
         - name: Deploy
           run: echo "Fake deployed.."
