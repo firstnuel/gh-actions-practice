@@ -46,4 +46,4 @@ jobs:
         - name: List files
           run: ls 
         - name: Deploy
-          run: echo"Fake deployed.."
+          run: echo "Fake deployed.."
